@@ -7,7 +7,7 @@ function App() {
     <>
       <Navbar title="Textify" aboutText="About textutils" />
       <div className="container p-3 mb-2 bg-light text-dark ">
-        <h3 className="my-3">Enter text to analyze</h3>
+        <h3 className="my-2">Enter text to analyze</h3>
         <Textform />
       </div>
     </>
