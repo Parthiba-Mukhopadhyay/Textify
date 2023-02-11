@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 
 export default function Textform() {
-  const handleOnChange = (event) => {
-    console.log("On change");
-    setText(event.target.value);
-    //allows updation of the present result with new characters to form a new string.
-    //event.target basically finds the state that triggered the change while .value allows updation
-  };
 
   const handleUpClick = () => {
     console.log("Clicked");
@@ -37,6 +31,13 @@ export default function Textform() {
     setText(rev);
   };
 
+  const handleOnChange = (event) => {
+    console.log("On change");
+    setText(event.target.value);
+    //allows updation of the present result with new characters to form a new string.
+    //event.target basically finds the state that triggered the change while .value allows updation
+  };
+
   const [text, setText] = useState("");
   return (
     <>
@@ -46,7 +47,7 @@ export default function Textform() {
             className="form-control"
             id="exampleFormControlTextarea1"
             rows="8"
-            //defaultValue={text}
+            value={text}
             onChange={handleOnChange}
           ></textarea>
         </div>
