@@ -33,15 +33,10 @@ export default function Textform() {
     console.log("Clicked");
     let s = text;
     let rev="";
-    let l=s.length();
-    let i=0;
-    while(i<l)
-    {
-      rev=s[i]+rev;
-      i++;
-    }
+    rev=s.split('').reverse().join('')
     setText(rev);
   };
+
   const [text, setText] = useState("");
   return (
     <>
