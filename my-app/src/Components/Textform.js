@@ -31,6 +31,15 @@ export default function Textform() {
     setText(rev);
   };
 
+  const handlecapClick = () => {
+    console.log("Clicked");
+    let s = text;
+    const words = s.split(" ");
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i][0].toUpperCase() + words[i].substring(1);}
+    setText(words.join(' '));
+  };
+
   const handleOnChange = (event) => {
     console.log("On change");
     setText(event.target.value);
@@ -83,13 +92,21 @@ export default function Textform() {
         >
           Reverse string
         </button>
+        <button
+          type="button"
+          className="btn btn-primary my-2 mx-2"
+          value={text}
+          onClick={handlecapClick}
+        >
+          Capitalize
+        </button>
       </div>
       <div className="container my-2">
         <h4 className="my-2">Preview</h4>
         <p>{text}</p>
         <h4>Text Analysis</h4>
         <p className="my-1">{text.split(" ").length-1} Words {text.length} Letters</p>
-        <p className="my-1">Average time to read the text is {(text.split(" ").length-1)*0.2} seconds</p>
+        <p className="my-1">Average time to read the text is {((text.split(" ").length-1)*0.2).toFixed(2)} seconds</p>
       </div>
     </>
   );
