@@ -47,10 +47,37 @@ export default function Textform() {
     //event.target basically finds the state that triggered the change while .value allows updation
   };
 
+  const [myText,setMyText]=useState("Set Dark Mode")
+  const [myStyle,setMyStyle]=useState({
+    color:'black',
+    backgroundColor:'white'
+  })
+
+const toggleStyle=()=>{
+  if(myStyle.color==='white')
+  {
+    setMyStyle ({
+      color:'black',
+      backgroundColor:'white'
+    })
+    setMyText("Enable Dark Mode")
+  }
+  else{
+      setMyStyle ({
+        color:'white',
+        backgroundColor:'black'
+      })
+      setMyText("Enable Light Mode")
+    }
+
+  }
+
+
   const [text, setText] = useState("");
   return (
     <>
-      <div>
+      <div className="container" style={myStyle}>
+      <h1 className="my-3">Enter text to analyze</h1>
         <div className="mb-3">
           <textarea
             className="form-control"
@@ -101,13 +128,14 @@ export default function Textform() {
           Capitalize
         </button>
       </div>
-      <div className="container my-2">
+      <div className="container my-2" style={myStyle}>
         <h4 className="my-2">Preview</h4>
         <p>{text}</p>
         <h4>Text Analysis</h4>
         <p className="my-1">{text.split(" ").length-1} Words {text.length} Letters</p>
         <p className="my-1">Average time to read the text is {((text.split(" ").length-1)*0.2).toFixed(2)} seconds</p>
-      </div>
+      </div> 
+      <button onClick={toggleStyle} type="button" className= "btn btn-success btn-sm my-2 mx-2">{myText}</button>
     </>
   );
 }
