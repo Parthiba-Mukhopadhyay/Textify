@@ -44,7 +44,7 @@ export default function Textform() {
     console.log("On change");
     setText(event.target.value);
     //allows updation of the present result with new characters to form a new string.
-    //event.target basically finds the state that triggered the change while .value allows updation
+    //event.target basically finds the state that triggered the change while .value allows updation.
   };
 
   const [myText,setMyText]=useState("Set Dark Mode")
