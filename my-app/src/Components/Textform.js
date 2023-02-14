@@ -72,13 +72,12 @@ const toggleStyle=()=>{
 
   }
 
-
   const [text, setText] = useState("");
   return (
     <>
-      <div className="container" style={myStyle}>
+    <div className="container" style={myStyle}>
       <h1 className="my-3">Enter text to analyze</h1>
-        <div className="mb-3">
+        <div className>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"
@@ -127,15 +126,13 @@ const toggleStyle=()=>{
         >
           Capitalize
         </button>
-      </div>
-      <div className="container my-2" style={myStyle}>
         <h4 className="my-2">Preview</h4>
         <p>{text}</p>
         <h4>Text Analysis</h4>
         <p className="my-1">{text.split(" ").length-1} Words {text.length} Letters</p>
         <p className="my-1">Average time to read the text is {((text.split(" ").length-1)*0.2).toFixed(2)} seconds</p>
-      </div> 
-      <button onClick={toggleStyle} type="button" className= "btn btn-success btn-sm my-2 mx-2">{myText}</button>
+      <button onClick={toggleStyle} type="button" className= "btn btn-success btn-sm my-2">{myText}</button>
+    </div>
     </>
   );
 }
