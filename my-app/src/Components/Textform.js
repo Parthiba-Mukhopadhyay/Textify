@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Textform() {
+export default function Textform(props) {
 
   const handleUpClick = () => {
     console.log("Clicked");
@@ -47,45 +47,52 @@ export default function Textform() {
     //event.target basically finds the state that triggered the change while .value allows updation.
   };
 
-  const [myText,setMyText]=useState("Set Dark Mode")
-  const [myStyle,setMyStyle]=useState({
-    color:'black',
-    backgroundColor:'white'
-  })
+const handlermvspClick=()=>{
+  let newtext=text.split(/[ ]+/)
+  setText(newtext.join(" "))
+}
 
-const toggleStyle=()=>{
-  if(myStyle.color==='white')
-  {
-    setMyStyle ({
-      color:'black',
-      backgroundColor:'white'
-    })
-    setMyText("Enable Dark Mode")
-  }
-  else{
-      setMyStyle ({
-        color:'white',
-        backgroundColor:'black'
-      })
-      setMyText("Enable Light Mode")
-    }
+  // const [myText,setMyText]=useState("Set Dark Mode")
+  // const [myStyle,setMyStyle]=useState({
+  //   color:'black',
+  //   backgroundColor:'white'
+  // })
 
-  }
+// const toggleStyle=()=>{
+//   if(myStyle.color==='white')
+//   {
+//     setMyStyle ({
+//       color:'black',
+//       backgroundColor:'white'
+//     })
+//     setMyText("Enable Dark Mode")
+//   }
+//   else{
+//       setMyStyle ({
+//         color:'white',
+//         backgroundColor:'black'
+//       })
+//       setMyText("Enable Light Mode")
+//     }
+
+//   }
 
   const [text, setText] = useState("");
   return (
     <>
-    <div className="container" style={myStyle}>
+    <div className="container" style={{color: props.mode==='dark'?'white':'black'}}>
       <h1 className="my-3">Enter text to analyze</h1>
-        <div className>
+        <div>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"
             rows="8"
             value={text}
             onChange={handleOnChange}
+            style={{backgroundColor: props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'black'}}
           ></textarea>
         </div>
+
         <button
           type="button"
           className="btn btn-primary my-2 mx-2"
@@ -94,6 +101,7 @@ const toggleStyle=()=>{
         >
           Convert to uppercase
         </button>
+
         <button
           type="button"
           className="btn btn-primary my-2 mx-2"
@@ -102,14 +110,7 @@ const toggleStyle=()=>{
         >
           Convert to lowercase
         </button>
-        <button
-          type="button"
-          className="btn btn-primary my-2 mx-2"
-          value={text}
-          onClick={handleclClick}
-        >
-          Clear text
-        </button>
+
         <button
           type="button"
           className="btn btn-primary my-2 mx-2"
@@ -118,6 +119,7 @@ const toggleStyle=()=>{
         >
           Reverse string
         </button>
+
         <button
           type="button"
           className="btn btn-primary my-2 mx-2"
@@ -126,12 +128,31 @@ const toggleStyle=()=>{
         >
           Capitalize
         </button>
+
+        <button
+          type="button"
+          className="btn btn-primary my-2 mx-2"
+          value={text}
+          onClick={handlermvspClick}
+        >
+          Remove extra spaces
+        </button>
+
+        <button
+          type="button"
+          className="btn btn-primary my-2 mx-2"
+          value={text}
+          onClick={handleclClick}
+        >
+          Clear text
+        </button>
+        
         <h4 className="my-2">Preview</h4>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter something to preview"}</p>
         <h4>Text Analysis</h4>
         <p className="my-1">{text.split(" ").length-1} Words {text.length} Letters</p>
         <p className="my-1">Average time to read the text is {((text.split(" ").length-1)*0.2).toFixed(2)} seconds</p>
-      <button onClick={toggleStyle} type="button" className= "btn btn-success btn-sm my-2">{myText}</button>
+      {/* <button onClick={toggleStyle} type="button" className= "btn btn-success btn-sm my-2">{myText}</button> */}
     </div>
     </>
   );
