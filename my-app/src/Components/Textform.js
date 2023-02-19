@@ -7,6 +7,7 @@ export default function Textform(props) {
     let s = text;
     s = s.toUpperCase();
     setText(s);
+    props.showAlert("Set to uppercase","Success");
   };
 
   const handleLoClick = () => {
@@ -14,6 +15,7 @@ export default function Textform(props) {
     let s = text;
     s = s.toLowerCase();
     setText(s);
+    props.showAlert("Set to lowercase","Success");
   };
 
   const handleclClick = () => {
@@ -21,6 +23,7 @@ export default function Textform(props) {
     let s = text;
     s = "";
     setText(s);
+    props.showAlert("Text cleared","Success");
   };
 
   const handlerevClick = () => {
@@ -29,6 +32,7 @@ export default function Textform(props) {
     let rev="";
     rev=s.split('').reverse().join('')
     setText(rev);
+    props.showAlert("Text reversed","Success");
   };
 
   const handlecapClick = () => {
@@ -38,6 +42,7 @@ export default function Textform(props) {
     for (let i = 0; i < words.length; i++) {
       words[i] = words[i][0].toUpperCase() + words[i].substring(1);}
     setText(words.join(' '));
+    props.showAlert("Text capitalized","Success");
   };
 
   const handleOnChange = (event) => {
@@ -50,7 +55,8 @@ export default function Textform(props) {
 const handlermvspClick=()=>{
   let newtext=text.split(/[ ]+/)
   setText(newtext.join(" "))
-}
+  props.showAlert("Extra spaces removed","Success");
+};
 
   const [text, setText] = useState("");
   return (
