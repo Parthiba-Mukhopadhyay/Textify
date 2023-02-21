@@ -35,11 +35,13 @@ const showAlert=(message,type)=>
       setMode('dark')
       document.body.style.backgroundColor='#081633';
       showAlert("Set to dark mode","Success");
+      document.title="Textify- Dark Mode";
     }
     else{
       setMode('light')
       document.body.style.backgroundColor='rgb(214 238 246)';
       showAlert("Set to light mode","Success");
+      document.title="Textify- Light Mode";
     }
   }
   return (
