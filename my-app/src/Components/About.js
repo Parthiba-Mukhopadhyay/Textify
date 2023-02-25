@@ -1,35 +1,24 @@
-import React, { useState } from "react";
+//import React, { useState } from "react";
 
-export default function About() {
-  //set up a statehook for the colour of text and background for light to dark and vice versa
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-    border: "1px solid black",
-  });
-  //create a state hook for the text to change it from change to dark mode to change to light mode with each transition
-  const [myText, setMyText] = useState("Enable Dark Mode");
-  const toggleStyle = () => {
-    if (myStyle.color === "white") {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-        border: "1px solid black",
-      });
-      setMyText("Enable Dark Mode");
-    } else {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-        border: "1px solid white",
-      });
-      setMyText("Enable Light Mode");
-    }
+export default function About(props) {
+
+  let myStyle = {
+    color: props.mode === "dark" ? "rgb(229, 249, 255)" : "black",
+    backgroundColor: props.mode === "dark" ? "#19495e" : "#bed6ec",
+    border: "2px solid",
+    borderColor: props.mode === "dark" ? "white" : "black"
+  };
+  let myStyle1 = {
+    color: props.mode === "dark" ? "rgb(229, 249, 255)" : "black",
+    backgroundColor: props.mode === "dark" ? "rgb(15, 95, 95)" : "rgb(198 242 232)",
+    border: "1px solid",
+    borderColor: props.mode === "dark" ? "white" : "black"
   };
 
   return (
-    <div className="container" style={myStyle}>
-      <h2 className="my-3">About Textify: Learn more about it</h2>
+    <div className="container" style={{color: props.mode === "dark" ? "white" : "black",
+    backgroundColor: props.mode === "dark" ? "rgb(8, 22, 51)" : "rgb(214, 238, 246)"}}>
+      <h1 className="my-3">About Textify: Learn more about it</h1>
       <div className="accordion accordion-flush" id="accordionFlushExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="flush-headingOne">
@@ -42,7 +31,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              Convert to uppercase
+              <strong>Convert to uppercase</strong>
             </button>
           </h2>
           <div
@@ -51,7 +40,7 @@ export default function About() {
             aria-labelledby="flush-headingOne"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body" style={myStyle}>
+            <div className="accordion-body" style={myStyle1}>
               <p>
                 Alternatively known as caps and capital, and sometimes
                 abbreviated as UC, uppercase is a typeface of larger characters.
@@ -80,7 +69,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="flush-collapseTwo"
             >
-              Convert to lowercase
+              <strong>Convert to lowercase</strong>
             </button>
           </h2>
           <div
@@ -89,7 +78,7 @@ export default function About() {
             aria-labelledby="flush-headingTwo"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body" style={myStyle}>
+            <div className="accordion-body" style={myStyle1}>
               <p>
                 Sometimes abbreviated as LC, lowercase is a typeface of small
                 characters. For example, a, b, and c is lowercase and A, B, and
@@ -112,7 +101,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="flush-collapseThree"
             >
-              Reverse String
+              <strong>Reverse String</strong>
             </button>
           </h2>
           <div
@@ -121,7 +110,7 @@ export default function About() {
             aria-labelledby="flush-headingThree"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body" style={myStyle}>
+            <div className="accordion-body" style={myStyle1}>
               <p>
                 Reversing a string is the technique that reverses or changes the
                 order of a given string so that the last character of the string
@@ -142,7 +131,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="flush-collapseFour"
             >
-              Capitalize
+              <strong>Capitalize</strong>
             </button>
           </h2>
           <div
@@ -151,7 +140,7 @@ export default function About() {
             aria-labelledby="flush-headingFour"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body" style={myStyle}>
+            <div className="accordion-body" style={myStyle1}>
               <p>
                 In writing, capitalization is the use of capital letters as a
                 type of punctuation. When we say that something is “
@@ -163,26 +152,26 @@ export default function About() {
         </div>
 
         <div className="accordion-item">
-          <h2 className="accordion-header" id="flush-headingFour">
+          <h2 className="accordion-header" id="flush-headingFive">
             <button
               className="accordion-button collapsed my-2"
               type="button"
               style={myStyle}
               data-bs-toggle="collapse"
-              data-bs-target="#flush-collapseFour"
+              data-bs-target="#flush-collapseFive"
               aria-expanded="false"
-              aria-controls="flush-collapseFour"
+              aria-controls="flush-collapseFive"
             >
-              Remove extra spaces
+              <strong>Remove extra spaces</strong>
             </button>
           </h2>
           <div
-            id="flush-collapseFour"
+            id="flush-collapseFive"
             className="accordion-collapse collapse"
-            aria-labelledby="flush-headingFour"
+            aria-labelledby="flush-headingFive"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body" style={myStyle}>
+            <div className="accordion-body" style={myStyle1}>
               <p>
                 Extra spaces are the spaces that are inserted by the user by
                 mistake and needs to be removed to make the text grammatically
@@ -193,26 +182,26 @@ export default function About() {
         </div>
 
         <div className="accordion-item">
-          <h2 className="accordion-header" id="flush-headingFour">
+          <h2 className="accordion-header" id="flush-headingSix">
             <button
               className="accordion-button collapsed my-2"
               type="button"
               style={myStyle}
               data-bs-toggle="collapse"
-              data-bs-target="#flush-collapseFour"
+              data-bs-target="#flush-collapseSix"
               aria-expanded="false"
-              aria-controls="flush-collapseFour"
+              aria-controls="flush-collapseSix"
             >
-              Clear text
+              <strong>Clear text</strong>
             </button>
           </h2>
           <div
-            id="flush-collapseFour"
-            className="accordion-collapse collapse"
-            aria-labelledby="flush-headingFour"
+            id="flush-collapseSix"
+            className="accordion-collapse collapse my-2"
+            aria-labelledby="flush-headingSix"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body" style={myStyle}>
+            <div className="accordion-body" style={myStyle1}>
               <p>
                 In case you have written a big text and need to clear the screen
                 and start afresh, instead of deleting each letter one by one
@@ -222,13 +211,6 @@ export default function About() {
           </div>
         </div>
       </div>
-      <button
-        onClick={toggleStyle}
-        type="button"
-        className="btn btn-secondary btn-sm my-3"
-      >
-        {myText}
-      </button>
     </div>
   );
 }
