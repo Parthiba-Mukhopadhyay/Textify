@@ -62,7 +62,7 @@ const handlermvspClick=()=>{
   return (
     <>
     <div className="container" style={{color: props.mode==='dark'?'#e5f9ff':'black'}}>
-      <h1 className="my-3">Enter text to analyze</h1>
+      <h1 className="my-3 mb-6">Enter text to analyze</h1>
         <div>
           <textarea
             className="form-control"
@@ -70,12 +70,13 @@ const handlermvspClick=()=>{
             rows="8"
             value={text}
             onChange={handleOnChange}
-            style={{backgroundColor: props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'black'}}
+            style={{backgroundColor: props.mode==='dark'?'#328899':'white', color: props.mode==='dark'?'white':'black'}}
           ></textarea>
         </div>
 
         <button
           type="button"
+          disabled={text.length===0}
           className="btn btn-primary my-2 mx-2"
           value={text}
           onClick={handleUpClick}
@@ -85,6 +86,7 @@ const handlermvspClick=()=>{
 
         <button
           type="button"
+          disabled={text.length===0}
           className="btn btn-primary my-2 mx-2"
           value={text}
           onClick={handleLoClick}
@@ -94,6 +96,7 @@ const handlermvspClick=()=>{
 
         <button
           type="button"
+          disabled={text.length===0}
           className="btn btn-primary my-2 mx-2"
           value={text}
           onClick={handlerevClick}
@@ -103,6 +106,7 @@ const handlermvspClick=()=>{
 
         <button
           type="button"
+          disabled={text.length===0}
           className="btn btn-primary my-2 mx-2"
           value={text}
           onClick={handlecapClick}
@@ -112,6 +116,7 @@ const handlermvspClick=()=>{
 
         <button
           type="button"
+          disabled={text.length===0}
           className="btn btn-primary my-2 mx-2"
           value={text}
           onClick={handlermvspClick}
@@ -121,6 +126,7 @@ const handlermvspClick=()=>{
 
         <button
           type="button"
+          disabled={text.length===0}
           className="btn btn-primary my-2 mx-2"
           value={text}
           onClick={handleclClick}
@@ -131,8 +137,8 @@ const handlermvspClick=()=>{
         <h3 className="my-3"><b>Preview</b></h3>
         <p>{text.length>0?text:"Enter something to preview"}</p>
         <h4 className="my-3"><b>Text Analysis</b></h4>
-        <p className="my-1">{text.split(" ").length-1} Words {text.length} Letters</p>
-        <p className="my-1">Average time to read the text is {((text.split(" ").length-1)*0.2).toFixed(2)} seconds</p>
+        <p className="my-1">{text.split(" ").filter((element)=>{return element.length!==0}).length} Words {text.length} Letters</p>
+        <p className="my-1">Average time to read the text is {((text.split(" ").filter((element)=>{return element.length!==0}).length)*0.2).toFixed(2)} seconds</p>
     </div>
     </>
   );

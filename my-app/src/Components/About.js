@@ -4,13 +4,13 @@ export default function About(props) {
 
   let myStyle = {
     color: props.mode === "dark" ? "rgb(229, 249, 255)" : "black",
-    backgroundColor: props.mode === "dark" ? "#19495e" : "#bed6ec",
+    backgroundColor: props.mode === "dark" ? "rgb(49, 133, 140)" : "#bed6ec",
     border: "2px solid",
     borderColor: props.mode === "dark" ? "white" : "black"
   };
   let myStyle1 = {
     color: props.mode === "dark" ? "rgb(229, 249, 255)" : "black",
-    backgroundColor: props.mode === "dark" ? "rgb(15, 95, 95)" : "rgb(198 242 232)",
+    backgroundColor: props.mode === "dark" ? "rgb(54, 0, 73)" : "rgb(198 242 232)",
     border: "1px solid",
     borderColor: props.mode === "dark" ? "white" : "black"
   };
